@@ -9,10 +9,10 @@ export const db = mysql.createConnection({
 
 export function isConnected(): boolean {
   let status = true;
-  db.connect(function(err) {
+  db.connect(function (err) {
     if (err) {
-      status = false
+      status = false;
     }
-  })
-  return status
+  });
+  return status;
 }

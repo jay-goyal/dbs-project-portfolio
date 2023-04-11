@@ -47,11 +47,12 @@ FROM Investment;
 
 -- Calculate the correlation between two investments’ performance using the performance metrics table.
 SET @Corr = NULL;
-CALL CalculateCorr(1, 2, @Corr);
+CALL CalculateCorr(2, 3, @Corr);
 SELECT @Corr AS CORR;
+-- TODO
 
 -- Retrieve the most recent inflation rate from the other financial information table.
-SELECT InflationRate
+SELECT Date, InflationRate
 FROM OtherFinancialInfo
 ORDER BY Date DESC
 LIMIT 1;
@@ -69,10 +70,12 @@ FROM MarketData md1
          INNER JOIN MarketData md2 ON md1.StockID = md2.StockID AND md2.DateOfMeasurement = '2023-04-10'
 WHERE md1.DateOfMeasurement = '2023-04-01'
   AND md1.StockID = 1;
+-- TODO
 
 -- Calculate the volatility of an investment’s returns using the performance metrics table.
-SELECT (TotalReturn - AnnualizedReturn) AS VOLATILITY
-FROM Investment;
+SELECT SQRT(POWER((TotalReturn - AnnualizedReturn), 2)) AS VOLATILITY
+FROM Investment
+WHERE InvestmentID = 2;
 
 -- Retrieve the top-performing investments based on annualized return and risk level.
 SELECT i.InvestmentID, s.NameOfStock, i.NumberOfShares, i.AnnualizedReturn, i.RiskLevel
@@ -85,3 +88,6 @@ LIMIT 5;
 SELECT TypeOfInvestment, SUM(NumberOfShares) AS TotalShares
 FROM Investment
 GROUP BY TypeOfInvestment;
+
+-- Update Metrics
+CALL UpdateMetrics(10);

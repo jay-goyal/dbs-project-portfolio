@@ -43,8 +43,8 @@
   </div>
 </form>
 
-    <style>
-    form {
-        width: 100%;
-    }
+<style>
+  form {
+    width: 100%;
+  }
 </style>

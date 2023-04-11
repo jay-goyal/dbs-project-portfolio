@@ -5,14 +5,11 @@
 </script>
 
 <nav>
+  <ul />
   <ul>
     <li><a href="/"><h1>Portfolio Management System</h1></a></li>
   </ul>
-  <ul>
-    <li><a href="/investments">Investments</a></li>
-    <li><a href="#">User</a></li>
-    <li><a href="#">Stocks</a></li>
-  </ul>
+  <ul />
 </nav>
 
 <main class="container">

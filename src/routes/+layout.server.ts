@@ -1,6 +1,6 @@
 import { isConnected } from '$lib/database';
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 
 export const load = (() => {
   return { dbConnected: isConnected() };
-}) satisfies PageServerLoad;
+}) satisfies LayoutServerLoad;
