@@ -49,7 +49,6 @@ FROM Investment;
 SET @Corr = NULL;
 CALL CalculateCorr(2, 3, @Corr);
 SELECT @Corr AS CORR;
--- TODO
 
 -- Retrieve the most recent inflation rate from the other financial information table.
 SELECT Date, InflationRate
@@ -70,7 +69,6 @@ FROM MarketData md1
          INNER JOIN MarketData md2 ON md1.StockID = md2.StockID AND md2.DateOfMeasurement = '2023-04-10'
 WHERE md1.DateOfMeasurement = '2023-04-01'
   AND md1.StockID = 1;
--- TODO
 
 -- Calculate the volatility of an investment’s returns using the performance metrics table.
 SELECT SQRT(POWER((TotalReturn - AnnualizedReturn), 2)) AS VOLATILITY
