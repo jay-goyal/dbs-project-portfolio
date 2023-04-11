@@ -6,7 +6,7 @@ VALUES (1, 2, '2023-04-10', 100, 'Stock');
 -- Update the number of shares held for an investment in the investments table.
 UPDATE Investment
 SET NumberOfShares = 150
-WHERE InvestmentID = 1;
+WHERE InvestmentID = 2;
 
 -- Delete an investment from the investments table.
 DELETE
@@ -24,14 +24,6 @@ FROM Investment i
 WHERE m.DateOfMeasurement = '2023-04-01';
 
 -- Group the investments by type and retrieve the average annualized return for each type.
-CALL UpdateMetrics(1);
-CALL UpdateMetrics(2);
-CALL UpdateMetrics(3);
-CALL UpdateMetrics(4);
-CALL UpdateMetrics(5);
-CALL UpdateMetrics(6);
-CALL UpdateMetrics(7);
-CALL UpdateMetrics(8);
 SELECT TypeOfInvestment, AVG(AnnualizedReturn) AS AvgAnnualizedReturn
 FROM Investment
 GROUP BY TypeOfInvestment;

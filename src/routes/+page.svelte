@@ -1,2 +1,3 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<button class="contrast"><a href="#">Investments</a></button>
+<button class="contrast"><a href="#">User</a></button>
+<button class="contrast"><a href="#">Stocks</a></button>
