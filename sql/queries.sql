@@ -8,8 +8,16 @@ UPDATE Investment
 SET NumberOfShares = 150
 WHERE InvestmentID = 2;
 
+SELECT InvestmentID, NumberOfShares
+FROM Investment
+WHERE InvestmentID = 2;
+
 -- Delete an investment from the investments table.
 DELETE
+FROM Investment
+WHERE InvestmentID = 1;
+
+SELECT InvestmentID
 FROM Investment
 WHERE InvestmentID = 1;
 
@@ -60,7 +68,7 @@ LIMIT 1;
 SELECT m.DateOfMeasurement, m.StockPrice
 FROM Investment i
          INNER JOIN MarketData m ON i.StockID = m.StockID
-WHERE i.InvestmentID = 1
+WHERE i.InvestmentID = 2
   AND m.DateOfMeasurement BETWEEN i.DateOfInvestment AND i.DateOfMeasurement;
 
 -- Calculate the percentage change in stock prices for a particular investment between two dates.
@@ -88,4 +96,8 @@ FROM Investment
 GROUP BY TypeOfInvestment;
 
 -- Update Metrics
-CALL UpdateMetrics(10);
+CALL UpdateMetrics(9);
+
+SELECT StockID, DateOfMeasurement, TotalReturn, AnnualizedReturn, RiskLevel
+FROM Investment
+WHERE InvestmentID = 9;
